@@ -10,9 +10,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install dependencies
       run: bash ci.sh deps
-    - name: Build LLVM
-      run: bash ci.sh llvm
-    - name: Build binutils
-      run: bash ci.sh binutils
-    - name: Build kernel
-      run: bash ci.sh kernel
+    - name: Building
+      run: bash build-tc.sh
+      env:
+        BTOKEN: ${{ secrets.BTOKEN }}
+        GTOKEN: ${{ secrets.GTOKEN }}
